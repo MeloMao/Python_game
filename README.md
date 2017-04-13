@@ -1,2 +1,2 @@
 # Python_game
-These programs can running right now.
+These game programs can running right now.
