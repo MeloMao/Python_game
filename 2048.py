@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+#coding=utf-8
 
 import curses
 from random import randrange, choice # generate and place new tile
@@ -157,23 +157,23 @@ class GameField(object):
 
 def main(stdscr):
     def init():
-        #ÖØÖÃÓÎÏ·ÆåÅÌ
+        #é‡ç½®æ¸¸æˆæ£‹ç›˜
         game_field.reset()
         return 'Game'
 
     def not_game(state):
-        #»­³ö GameOver »òÕß Win µÄ½çÃæ
+        #ç”»å‡º GameOver æˆ–è€… Win çš„ç•Œé¢
         game_field.draw(stdscr)
-        #¶ÁÈ¡ÓÃ»§ÊäÈëµÃµ½action£¬ÅĞ¶ÏÊÇÖØÆôÓÎÏ·»¹ÊÇ½áÊøÓÎÏ·
+        #è¯»å–ç”¨æˆ·è¾“å…¥å¾—åˆ°actionï¼Œåˆ¤æ–­æ˜¯é‡å¯æ¸¸æˆè¿˜æ˜¯ç»“æŸæ¸¸æˆ
         action = get_user_action(stdscr)
-        responses = defaultdict(lambda: state) #Ä¬ÈÏÊÇµ±Ç°×´Ì¬£¬Ã»ÓĞĞĞÎª¾Í»áÒ»Ö±ÔÚµ±Ç°½çÃæÑ­»·
-        responses['Restart'], responses['Exit'] = 'Init', 'Exit' #¶ÔÓ¦²»Í¬µÄĞĞÎª×ª»»µ½²»Í¬µÄ×´Ì¬
+        responses = defaultdict(lambda: state) #é»˜è®¤æ˜¯å½“å‰çŠ¶æ€ï¼Œæ²¡æœ‰è¡Œä¸ºå°±ä¼šä¸€ç›´åœ¨å½“å‰ç•Œé¢å¾ªç¯
+        responses['Restart'], responses['Exit'] = 'Init', 'Exit' #å¯¹åº”ä¸åŒçš„è¡Œä¸ºè½¬æ¢åˆ°ä¸åŒçš„çŠ¶æ€
         return responses[action]
 
     def game():
-        #»­³öµ±Ç°ÆåÅÌ×´Ì¬
+        #ç”»å‡ºå½“å‰æ£‹ç›˜çŠ¶æ€
         game_field.draw(stdscr)
-        #¶ÁÈ¡ÓÃ»§ÊäÈëµÃµ½action
+        #è¯»å–ç”¨æˆ·è¾“å…¥å¾—åˆ°action
         action = get_user_action(stdscr)
 
         if action == 'Restart':
@@ -201,7 +201,7 @@ def main(stdscr):
 
     state = 'Init'
 
-    #×´Ì¬»ú¿ªÊ¼Ñ­»·
+    #çŠ¶æ€æœºå¼€å§‹å¾ªç¯
     while state != 'Exit':
         state = state_actions[state]()
 
